@@ -20,6 +20,7 @@ using Microsoft.NET.TestFramework.Assertions;
 using Microsoft.NET.TestFramework.Commands;
 using Microsoft.NET.TestFramework.ProjectConstruction;
 using Newtonsoft.Json.Linq;
+using Microsoft.NET.TestFramework.Utilities;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -1133,7 +1134,7 @@ namespace Microsoft.NET.Publish.Tests
 
             var publishDir = publishCommand.GetOutputDirectory(targetFramework, runtimeIdentifier: rid);
             publishDir.Should().HaveFile("System.IO.Compression.ZipFile.dll");
-            GivenThatWeWantToPublishReadyToRun.DoesImageHaveR2RInfo(publishDir.File("TestWeb.Views.dll").FullName);
+            GivenThatWeWantToPublishReadyToRun.DoesImageHaveR2RInfo(publishDir.GetFile("TestWeb.Views.dll").FullName);
         }
 
         private static bool DoesImageHaveMethod(string path, string methodNameToCheck)
