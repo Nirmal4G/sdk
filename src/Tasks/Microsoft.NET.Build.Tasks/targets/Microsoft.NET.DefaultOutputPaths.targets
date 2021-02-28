@@ -44,6 +44,7 @@ Copyright (c) .NET Foundation. All rights reserved.
   <!-- Set the package output path (for nuget pack target) now, before the TargetFramework is appended -->
   <PropertyGroup>
     <PackageOutputPath Condition="'$(PackageOutputPath)' == ''">$(OutputPath)</PackageOutputPath>
+    <NuspecOutputPath Condition="'$(NuspecOutputPath)' == ''">$(IntermediateOutputPath)</NuspecOutputPath>
   </PropertyGroup>
   
 </Project>
